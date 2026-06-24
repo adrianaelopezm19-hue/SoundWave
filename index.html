@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SoundWave</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- CURSOR PERSONALIZADO -->
+  <div id="cursor"></div>
+  <div id="cursor-trail"></div>
+
+  <!-- PARTÍCULAS DE FONDO -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- HEADER -->
+  <header id="header">
+    <a href="#inicio" class="logo">
+      <span class="logo-dot"></span>
+      SOUND<span class="logo-accent">WAVE</span>
+    </a>
+    <nav id="nav">
+      <a href="#inicio">Inicio</a>
+      <a href="#biblioteca">Biblioteca</a>
+      <a href="#acerca">Acerca</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menú">☰</button>
+  </header>
+
+  <!-- HERO -->
+  <section id="inicio" class="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow">✦ Plataforma de música cyberpunk ✦</p>
+      <h1 class="glitch" data-text="SOUNDWAVE">SOUND<span class="accent">WAVE</span></h1>
+      <p class="hero-sub">Escucha lo que el mundo está sonando ahora.<br>Sin límites. Sin ruido. Solo música.</p>
+      <div class="hero-actions">
+        <button class="btn-neon explorar-btn">▶ Explorar Música</button>
+        <a href="#acerca" class="btn-outline">¿Qué es esto?</a>
+      </div>
+    </div>
+
+    <!-- AUDÍFONO SVG ANIMADO -->
+    <div class="headphone-wrap" aria-hidden="true">
+      <svg class="headphone-svg" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+        <!-- Arco principal -->
+        <path d="M30 110 C30 55 80 15 110 15 C140 15 190 55 190 110" 
+              fill="none" stroke="url(#arcGrad)" stroke-width="8" stroke-linecap="round"/>
+        <!-- Almohadilla izquierda -->
+        <rect x="12" y="105" width="36" height="60" rx="18" fill="url(#padGrad)" class="pad-left"/>
+        <!-- Almohadilla derecha -->
+        <rect x="172" y="105" width="36" height="60" rx="18" fill="url(#padGrad)" class="pad-right"/>
+        <!-- Detalles internos -->
+        <rect x="20" y="115" width="20" height="40" rx="10" fill="rgba(255,30,120,0.3)"/>
+        <rect x="180" y="115" width="20" height="40" rx="10" fill="rgba(255,30,120,0.3)"/>
+        <!-- Líneas de brillo -->
+        <line x1="25" y1="120" x2="25" y2="148" stroke="#ff4fa3" stroke-width="2" opacity="0.6"/>
+        <line x1="185" y1="120" x2="185" y2="148" stroke="#ff4fa3" stroke-width="2" opacity="0.6"/>
+        <!-- Cable izquierdo -->
+        <line x1="30" y1="110" x2="30" y2="107" stroke="url(#arcGrad)" stroke-width="6" stroke-linecap="round"/>
+        <!-- Cable derecho -->
+        <line x1="190" y1="110" x2="190" y2="107" stroke="url(#arcGrad)" stroke-width="6" stroke-linecap="round"/>
+
+        <defs>
+          <linearGradient id="arcGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#ff4fa3"/>
+            <stop offset="50%" stop-color="#bf00ff"/>
+            <stop offset="100%" stop-color="#00e5ff"/>
+          </linearGradient>
+          <linearGradient id="padGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#2a0040"/>
+            <stop offset="100%" stop-color="#0d001a"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <!-- Ondas de sonido alrededor del audífono -->
+      <div class="sound-rings">
+        <span class="ring r1"></span>
+        <span class="ring r2"></span>
+        <span class="ring r3"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIBLIOTECA -->
+  <section id="biblioteca">
+    <div class="section-header">
+      <p class="section-label">✦ Biblioteca</p>
+      <h2>Tu música, <span class="accent">ahora</span></h2>
+    </div>
+    <div class="cards">
+
+      <div class="card" data-audio="yonaguni.mp3">
+        <div class="card-glow"></div>
+        <div class="card-img-wrap">
+          <img src="imagenes/yonaguni.jpg" alt="Yonaguni - Bad Bunny">
+          <div class="card-overlay">
+            <button class="play-btn" aria-label="Reproducir Yonaguni">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3>Yonaguni</h3>
+          <p class="card-artist">Bad Bunny</p>
+          <div class="card-bar"><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
+      </div>
+
+      <div class="card" data-audio="stay.mp3">
+        <div class="card-glow"></div>
+        <div class="card-img-wrap">
+          <img src="imagenes/stay.jpg" alt="Stay - Justin Bieber">
+          <div class="card-overlay">
+            <button class="play-btn" aria-label="Reproducir Stay">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3>Stay</h3>
+          <p class="card-artist">Justin Bieber ft. The Kid LAROI</p>
+          <div class="card-bar"><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
+      </div>
+
+      <div class="card" data-audio="imitadora.mp3">
+        <div class="card-glow"></div>
+        <div class="card-img-wrap">
+          <img src="imagenes/romeo.jpg" alt="Imitadora - Romeo Santos">
+          <div class="card-overlay">
+            <button class="play-btn" aria-label="Reproducir Imitadora">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3>Imitadora</h3>
+          <p class="card-artist">Romeo Santos</p>
+          <div class="card-bar"><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ACERCA -->
+  <section id="acerca">
+    <div class="section-header">
+      <p class="section-label">✦ Acerca de</p>
+      <h2>¿Qué es <span class="accent">SoundWave</span>?</h2>
+    </div>
+    <div class="acerca-grid">
+      <p class="acerca-text">SoundWave es una plataforma de música diseñada para el futuro. Rápida, inmersiva y sin distracciones — solo la música que quieres, cuando la quieres.</p>
+      <div class="acerca-stats">
+        <div class="stat">
+          <span class="stat-num">3</span>
+          <span class="stat-label">Canciones</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">1</span>
+          <span class="stat-label">Plataforma</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">∞</span>
+          <span class="stat-label">Reproducciones</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="section-header">
+      <p class="section-label">✦ Contacto</p>
+      <h2>¿Necesitas <span class="accent">ayuda</span>?</h2>
+    </div>
+    <p class="contacto-sub">Escríbenos por WhatsApp y te respondemos al momento.</p>
+    <button class="btn-neon contactar-btn">📲 Escríbenos en WhatsApp</button>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="logo">SOUND<span class="logo-accent">WAVE</span></span>
+    <p>© 2025 SoundWave · Hecho con 🎧 y neón</p>
+  </footer>
+
+  <!-- PLAYER FIJO -->
+  <div id="player" class="player-hidden">
+    <div class="player-info">
+      <div class="player-dot"></div>
+      <span id="songName">Nada reproduciéndose</span>
+    </div>
+    <div class="player-controls">
+      <button id="playPause" class="player-playbtn" aria-label="Play/Pause">
+        <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M8 5v14l11-7z"/></svg>
+        <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+      </button>
+    </div>
+    <div class="player-progress">
+      <span id="timeElapsed">0:00</span>
+      <input type="range" id="progress" value="0" min="0" max="100" step="0.1">
+      <span id="timeDuration">0:00</span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
